@@ -4,7 +4,13 @@
 # https://aka.ms/yaml
 
 trigger:
-- index.html
+- index
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Azure subscription 1(6e7a8710-fef4-48e1-bf0d-83bfaf23ab8c)'
+    appType: 'webAppLinux'
+    appName: 
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 pool:
   vmImage: ubuntu-latest
